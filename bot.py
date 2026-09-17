@@ -1,4 +1,3 @@
-cat << 'EOF' > rsi_bot.py
 import time
 import ccxt
 import pandas as pd
@@ -55,7 +54,7 @@ def smart_ai_scan():
                             last_buy_price = buy_trades[-1]['price']
                             profit_ratio = current_price / last_buy_price
                             print(f"🧠 AI Monitoring {symbol} | Profit: {((profit_ratio-1)*100):.2f}%")
-                            
+                             
                             if profit_ratio >= PROFIT_TARGET or rsi > 70:
                                 print(f"💰 AI TARGET REACHED! Selling {symbol} for 15%+ profit!")
                                 exchange.create_market_sell_order(symbol, asset_balance)
@@ -87,4 +86,3 @@ def run_bot():
 
 if __name__ == "__main__":
     run_bot()
-EOF
